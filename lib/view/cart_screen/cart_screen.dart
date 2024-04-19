@@ -47,88 +47,97 @@ class CartScreen extends StatelessWidget {
                             itemCount: cart.cartItemList.length,
                           ),
                           const SizedBox(height: 25),
-                          Divider(
-                            color: Colors.black.withOpacity(0.06),
-                            thickness: 2,
-                          ),
-                          const SizedBox(height: 20),
-                          Row(
-                            children: [
-                              Text(
-                                'Subtotal (${cart.totalCartCount} items)',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge
-                                    ?.copyWith(
-                                        color: Colors.black.withOpacity(0.7)),
-                              ),
-                              const Spacer(),
-                              Text(
-                                '\$${cart.totalCartPrice.toStringAsFixed(2)}',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge
-                                    ?.copyWith(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
+                          Container(
+                            padding: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius:
+                                  BorderRadiusDirectional.circular(15),
+                            ),
+                            child: Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    Text(
+                                      'Subtotal (${cart.totalCartCount} items)',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyLarge
+                                          ?.copyWith(
+                                              color: Colors.black
+                                                  .withOpacity(0.7)),
                                     ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 15),
-                          Row(
-                            children: [
-                              Text(
-                                'Shipping',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge
-                                    ?.copyWith(
-                                        color: Colors.black.withOpacity(0.7)),
-                              ),
-                              const Spacer(),
-                              Text(
-                                '\$20.00',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge
-                                    ?.copyWith(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
+                                    const Spacer(),
+                                    Text(
+                                      '\$${cart.totalCartPrice.toStringAsFixed(2)}',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyLarge
+                                          ?.copyWith(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                     ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 20),
-                          Divider(
-                            color: Colors.black.withOpacity(0.06),
-                            thickness: 2,
-                          ),
-                          const SizedBox(height: 10),
-                          Row(
-                            children: [
-                              Text(
-                                'Total',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleLarge
-                                    ?.copyWith(
-                                      fontWeight: FontWeight.bold,
+                                  ],
+                                ),
+                                const SizedBox(height: 15),
+                                Row(
+                                  children: [
+                                    Text(
+                                      'Shipping',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyLarge
+                                          ?.copyWith(
+                                              color: Colors.black
+                                                  .withOpacity(0.7)),
                                     ),
-                              ),
-                              const Spacer(),
-                              Text(
-                                '\$${(cart.totalCartPrice + 20).toStringAsFixed(2)}',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleLarge
-                                    ?.copyWith(
-                                      fontWeight: FontWeight.bold,
+                                    const Spacer(),
+                                    Text(
+                                      '\$20.00',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyLarge
+                                          ?.copyWith(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                     ),
-                              ),
-                            ],
+                                  ],
+                                ),
+                                const SizedBox(height: 20),
+                                Divider(
+                                  color: Colors.black.withOpacity(0.06),
+                                  thickness: 2,
+                                ),
+                                const SizedBox(height: 10),
+                                Row(
+                                  children: [
+                                    Text(
+                                      'Total',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleLarge
+                                          ?.copyWith(
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    ),
+                                    const Spacer(),
+                                    Text(
+                                      '\$${(cart.totalCartPrice + 20).toStringAsFixed(2)}',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleLarge
+                                          ?.copyWith(
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(height: 15),
+                              ],
+                            ),
                           ),
-                          const SizedBox(height: 15),
                         ],
                       );
                     },
@@ -138,7 +147,7 @@ class CartScreen extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(15),
+            padding: const EdgeInsets.all(15).copyWith(top: 0),
             child: InkWell(
               onTap: () {},
               borderRadius: BorderRadius.circular(10),
