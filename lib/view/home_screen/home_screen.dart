@@ -29,6 +29,14 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Builder(
+          builder: (context) => IconButton(
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+            icon: const Icon(Icons.table_restaurant),
+          ),
+        ),
         title: const Text('Fake Store Api'),
         actions: [
           Consumer<CartController>(
@@ -56,6 +64,28 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           const SizedBox(width: 20),
         ],
+      ),
+      drawer: Drawer(
+        child: Column(
+          children: [
+            const UserAccountsDrawerHeader(
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: NetworkImage(
+                    'https://images.pexels.com/photos/428328/pexels-photo-428328.jpeg?auto=compress&cs=tinysrgb&w=600'),
+              ),
+              accountName: Text('Antony Aiwin'),
+              accountEmail: Text('antonyaiwin@gmail.com'),
+            ),
+            ...List.generate(
+              10,
+              (index) => const ListTile(
+                title: Text('Settings'),
+                leading: Icon(Icons.settings),
+                trailing: Icon(Icons.arrow_right),
+              ),
+            ),
+          ],
+        ),
       ),
       body: Consumer<HomeScreenController>(
         builder: (context, value, child) {

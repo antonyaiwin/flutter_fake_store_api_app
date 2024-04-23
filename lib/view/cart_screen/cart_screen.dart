@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fake_store_api/controller/cart_controller.dart';
-import 'package:flutter_fake_store_api/view/cart_screen/cart_item_card.dart';
+import 'package:flutter_fake_store_api/view/cart_screen/widgets/cart_item_card.dart';
 import 'package:provider/provider.dart';
 
 class CartScreen extends StatelessWidget {

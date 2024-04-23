@@ -33,6 +33,13 @@ class CartController extends ChangeNotifier {
     notifyListeners();
   }
 
+  deleteItemFromCart(ProductModel productModel) {
+    _cartItemList
+        .removeWhere((element) => element.product.id == productModel.id);
+    notifyListeners();
+  }
+
+// clear all the items in cart
   clearItems() {
     _cartItemList.clear();
     notifyListeners();

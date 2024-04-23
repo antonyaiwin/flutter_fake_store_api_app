@@ -4,7 +4,7 @@ import 'package:flutter_fake_store_api/global_widgets/custom_loading_indicator.d
 import 'package:flutter_fake_store_api/view/home_screen/widgets/add_to_cart_button.dart';
 import 'package:provider/provider.dart';
 
-import '../../../model/product_model.dart';
+import '../../../../model/product_model.dart';
 
 class CartItemCard extends StatelessWidget {
   const CartItemCard({
@@ -47,11 +47,28 @@ class CartItemCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  item.title,
-                  style: Theme.of(context).textTheme.titleMedium,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: Text(
+                        item.title,
+                        style: Theme.of(context).textTheme.titleMedium,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        context.read<CartController>().deleteItemFromCart(item);
+                        ScaffoldMessenger.of(context)
+                            .showSnackBar(const SnackBar(
+                          content: Text('Item removed from cart'),
+                        ));
+                      },
+                      icon: const Icon(Icons.delete),
+                    ),
+                  ],
                 ),
                 Row(
                   children: [
